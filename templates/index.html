@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<span style="font-family:Microsoft JhengHei;">
+<head>
+	<meta charset="UTF-8">
+	<title>YS-Drivers 預測明日預拌車需求量</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body background="https://www.onlygfx.com/wp-content/uploads/2018/09/5-comic-burst-background-1.png";>
+
+	
+	<h1 style="text-align: center;"><span style="color: #000000;">YS-RMC 人工智慧</span></h1>
+	<h1 style="text-align: center;"><span style="color: #000000;">明日預拌車數量預測</span></h1>
+	<div class="main-form" style="text-align:center;">
+	
+	    <form id='input' action="{{ url_for('predict') }}" method="POST">
+		<input style="width:500px;font-size:30px;background-color:lightgreen;" placeholder="今天 是幾月(數字)" type="number" name="value1"/><br>
+		<input style="width:500px;font-size:30px;background-color:lightgreen;" placeholder="今天 星期幾(數字)" type="number" name="value2"/><br><br>
+		<input style="width:500px;font-size:30px;background-color:lightyellow;" placeholder="明日 工地數量(數字)" type="number" name="value3"/><br>
+		<input style="width:500px;font-size:30px;background-color:lightyellow;" placeholder="明日 預約車次(數字)" type="number" name="value4"/><br>
+		<input style="width:750px;font-size:30px;background-color:lightyellow;" placeholder="明日遠距離車次(茂安及台7線78k以上)" type="number" name="value5"/><br>    
+		<input style="width:750px;font-size:30px;background-color:lightyellow;" placeholder="明日超遠車次(南山、武陵、太平山、明池)" type="number" name="value52"/><br><br>
+		<input style="width:500px;font-size:30px;background-color:lightblue;" placeholder="今天 在職司機人數(數字)" type="number" name="value6"/><br>
+		<input style="width:500px;font-size:30px;background-color:lightblue;" placeholder="今天 臨時司機人數(數字)" type="number" name="value7"/><br><br>
+		<input style="width:500px;font-size:30px;background-color:lightorange;" placeholder="明日 天氣(好天氣填 0、下雨天填 1)" type="number" name="value8"/><br>
+		<input style="width:500px;font-size:30px;background-color:lightorange;" placeholder="環山以上車次數量" type="number" name="value9"/><br>
+		<button type="submit" style="width:120px;height:40px;font-size:30px;">預測</button>
+	    </form>
+	
+	</div>
+
+	<div id = 'output'>
+	    <h2 style="text-align: center;">{{ note }}</h2>
+	    <h1 style="text-align:center;"><font size="20" face="arial" color="red">{{ prediction }}</font></h2>
+	    <h2 style="text-align: center;">{{ yuan }}</h2>
+	</div>
+</span>
+</body>
+</html>
+
